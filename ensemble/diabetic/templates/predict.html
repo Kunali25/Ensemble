@@ -1,0 +1,180 @@
+{%load static%}
+<!DOCTYPE html>
+
+<html lang="en">
+ 
+
+<head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title> Prediction page</title>
+    <link rel="stylesheet" href= "{% static 'css/foundation.min.css'%}">
+    <link rel="stylesheet" href="{% static 'css/wireframe-theme.min.css' %}">
+    <script>document.createElement( "picture" );</script>
+    <script class="picturefill" async="async" src="{% static 'js/picturefill.min.js' %}"></script>
+    <link rel="stylesheet" href="{% static 'css/main.css' %}">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Archivo:400,500,b,i%7CRoboto">
+    <script src="{% static 'js/foundation.min.js' %}"></script>
+    <script>
+     // Get all input elements of type 'number'
+var numberInputs = document.querySelectorAll('input[type="number"]');
+
+// Iterate over each input element
+numberInputs.forEach(function(input) {
+    // Add event listener for 'input' event
+    input.addEventListener('input', function() {
+        // Round the input value to the nearest integer
+        this.value = Math.round(parseFloat(this.value));
+    });
+
+    // Add event listener for 'keypress' event to prevent typing decimal points
+    input.addEventListener('keypress', function(event) {
+        // Prevent the event from happening if the key pressed is a decimal point
+        if (event.key === '.' || event.key === ',') {
+            event.preventDefault();
+        }
+    });
+});
+
+  </script>
+         
+
+</head>
+ 
+
+<body class="dark-body no-js">
+  
+  <div class="container book-offer" id ="book">
+
+  <div class="container discount-container" >
+    
+    <h2 class="offer-heading">Diabetes Predictor</h2>
+      
+<div class="container sd-two-cols">
+
+      <div class="container">
+        <h2>
+          <font color="#ffffff" face="Aclonica, cursive">Project Description</font><br>
+        </h2><h5><br><font color="#ffffff" face="Aclonica, cursive">Diabetes is a chronic disease and a major health issue among this hustle and stressful world. <br>So we have come up with a solution, where diabetes can be predicted with an ensemble model, with high accuracy.<br> We use KNN(k nearest neighbor) & LightGBM algorithms  to predict whether the individual is sufffering from Diabetes or not.</font>
+        </h5>
+      </div>
+      
+      <div class="container">
+      <form class="form-container" action="{% url 'predict' %}" method="post" >
+        {% csrf_token %}
+             <style>
+  .placeholder { color: red; }
+
+          input[type="email"]{ 
+              text-align: center;
+          }
+          input[type="text"] { 
+              text-align: center;
+          }
+          input[type="number"] { 
+              text-align: center;
+          }
+          body {
+              text-align:center;
+          }
+          h1 {
+              color:green;
+          }
+          
+      </style>
+      <input value="" name="n0" type="text" placeholder = "Enter your name:" required="required"/>
+      <br>
+      <br>
+      <input value="" type="text" name="n1" placeholder = "Enter Number of pregnancies (Min-0 Max-99)" >
+      <input value="" type="text" name="n2" placeholder = "Enter Gluscose Level (Min-50 Max-500)">
+      <input value="" type="text" name="n3" placeholder = "Enter Blood Pressure (Min-50 Max-500)" >
+      <input value="" type="text" name="n4" placeholder = "Enter skin thickness (Min-2 Max-50)" >
+      <input value="" type="text" name="n5" placeholder = "Enter Insulin Level (Min-20 Max-2000)" >
+      <input value="" type="text" name="n6" placeholder = "Enter BMI (Min-10 Max-99)" >
+      <input value="" type="text" name="n7" placeholder = "Enter  Diabetes Pedigree Function (Min-0 Max-1)" >
+      <input value="" type="text" name="n8" placeholder = "Enter Age (Min-0 Max-99)" >
+        <style>
+                    *:focus {
+            outline: none;
+          }
+
+          .background {
+            background-color: gray;
+          }
+
+          .center {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+          }
+
+          button {
+            background-color: #4CAF50;
+            border: none;
+            color: white;
+            padding: 15px 32px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 4px 2px;
+            cursor: pointer;
+            -webkit-transition-duration: 0.4s;
+            transition-duration: 0.4s;
+          }
+
+          button:hover {
+              box-shadow: 0 12px 16px 0 rgba(0, 0, 0, 0.24), 0 17px 50px 0 rgba(0, 0, 0, 0.19);
+            }
+
+          
+        </style>
+        
+        <script>
+            function randomColor() {
+                var color = '#' + Math.random().toString(16).substr(2, 6);
+                document.getElementById("button").style.backgroundColor = color;
+  
+                
+                console.log(color);
+              }
+                          $('.btn').on('click', function() {
+                  var $this = $(this);
+                $this.button('loading');
+                  setTimeout(function() {
+                    $this.button('reset');
+                }, 8000);
+              });
+  
+            </script>
+            <style></style>
+            <script></script>
+                    <button id="button" onclick="randomColor()" class="button" type="submit" >  <span class="submit">Predict</span>
+            <span class="loading"><i class="fa fa-refresh"></i></span>
+            <span class="check"><i class="fa fa-check"></i></span>
+            </button>
+        
+        </form>
+        <script src="{% static 'js/jquery.min.js' %}"></script>
+       <script src= "{%static 'js/outofview.js'%}"></script>
+       <script src= "{% static 'js/what-input.min.js'%}"></script>
+        <script src= "{%static  'js/foundation.min.js'%}"></script>
+      </div>
+     
+    </div>
+        
+   
+    
+  </div>
+<div>
+        <form>
+        <a href="{% url 'feedback_form' %}" style="background-color: #008CBA; border: none; color: white; padding: 10px 20px; text-align: center; text-decoration: none; display: inline-block; font-size: 15px; margin-top: 15px; border-radius: 10px;">Feedback</a>
+        </form>
+    </div>
+  </div>
+</body>
+ 
+
+</html>
