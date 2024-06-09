@@ -72,6 +72,16 @@ Commit your changes: git commit -m 'Add some feature'
 Push to the branch: git push origin feature/YourFeature
 Open a pull request.
 
+![image](https://github.com/Kunali25/Ensemble/assets/128252521/b87ffab5-412f-4f08-8278-3480bec9d5b2)
+
+![image](https://github.com/Kunali25/Ensemble/assets/128252521/7ddb2538-0c99-4cf0-98de-a1bb84fcf1d7)
+
+![image](https://github.com/Kunali25/Ensemble/assets/128252521/c59c36c8-9b62-4ccb-8d6e-fecc23433f7c)
+
+![image](https://github.com/Kunali25/Ensemble/assets/128252521/e6f353ab-6ff2-463d-a6ae-8dcf6cd970c6)
+
+
+
 
 Contact
 If you have any questions or suggestions, feel free to contact me at kunaliyyappan25@@example.com.
